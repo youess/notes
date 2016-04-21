@@ -25,7 +25,7 @@
 
   + Linux. `apt-get install git`
   + Mac. `brew install git`
-  + Windows. 下载地址: `https://git-scm.com/download/win` 或者直接[64bit下载][git_exe_link]
+  + Windows. 下载地址: `https://git-scm.com/download/win` 或者直接[64bit下载][git_exe_link], 另外图形界面工具[TortoiseGit][tortoisegit]
 
 ### 2. 基本操作
 
@@ -63,7 +63,7 @@
   + 查看配置信息 `git config --list`
   + linux所有用户配置文件`/etc/gitconfig`( `git config --system` ), 当前用户配置文件`~/.gitconfig` (`git config --global`)，本地仓库类配置文件`./.git/config` (`git config --local`)，优先级别从低到高
   + 免密码同步项目。添加文件`~/.git-credentials`, `github`为例 `https://<username>:<password>@github.com` 同时配置`git config --global credential.helper=store`
-  + 常见配置
+  + 常见有用的配置
 
       ```
       git config --global user.name denis
@@ -93,3 +93,4 @@
 [1]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
 [2]: https://git-scm.com/documentation
 [git_exe_link]: https://github.com/git-for-windows/git/releases/download/v2.8.1.windows.1/Git-2.8.1-64-bit.exe
+[tortoisegit]: https://tortoisegit.org/
