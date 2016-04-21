@@ -10,7 +10,7 @@
     + 集中式，一个服务器
     + 分布式
 
-  + 开发者，**Linus Torvalds**
+  + 创始者，**Linus Torvalds**
 
 #### 特点
 
@@ -18,6 +18,7 @@
   + 设计简单
   + 有向无环图设计
   + 完全分布式
+  + 保存各个提交的版本，可回退到任何历史版本
   + 管理大项目(eg: linux源码)
 
 #### 安装
@@ -38,7 +39,7 @@
 ### 3. 回退
 
   + `git log`, 查看历史修改的版本号。`git log --graph --pretty=oneline --abbrev-commit` 查看分支合并图
-  + `git reset`, 用来回退到以前的版本。例如 `git reset --hard HEAD^` 回到最初的版本了。。
+  + `git reset`, 用来回退到以前的版本。例如 `git reset --hard HEAD^` 回到最初的版本了。
 
 ### 4. 分支
 
@@ -48,7 +49,7 @@
 
   + `git merge dev`, 假设我们现在在`master`分支，需要合并`dev`分支，如果两个分支中均有修改的东西，那么就需要手工修改
 
-### 6. 如何clone不同的分支到本地文件
+### 6. 如何`clone`不同的分支到本地文件
 
   + 在`clone`完整个项目的时候，发现本地并没有远程仓库中的分支，或者两者文件并不同步。采用`git checkout -b <branch_name> origin/<branch_name>`
 
@@ -57,7 +58,33 @@
   + `clone`的时候，如果项目中有其他git子项目，加上`--recursive`选项
   + 自己更新`submodule`提交更改的时候需要切换到`submodule`所在的目录，并且同步到自己的主项目的时候需要`git submodule update`
 
-### 8. 参考资料
+### 8. 配置
+
+  + 查看配置信息 `git config --list`
+  + linux所有用户配置文件`/etc/gitconfig`( `git config --system` ), 当前用户配置文件`~/.gitconfig` (`git config --global`)，本地仓库类配置文件`./.git/config` (`git config --local`)，优先级别从低到高
+  + 免密码同步项目。添加文件`~/.git-credentials`, `github`为例 `https://<username>:<password>@github.com` 同时配置`git config --global credential.helper=store`
+  + 常见配置
+
+      ```
+      git config --global user.name denis
+      git config --global user.email denis_lton@hotmail.com
+      git config --global push.default=simple
+      git config --global credential.helper=store
+      git config --global color.ui=true
+      git config --global core.editor=vim
+      git config --global core.autocrlf=false               # 保证是\n为结尾，保证不同系统同时开发
+      git config --global core.safecrlf=true                # 若有windows换行符则拒绝提交
+      git config --global merge.tool=vimdiff
+      git config --global alias.st=status
+      git config --global alias.cm=commit
+      git config --global alias.br=branch
+      git config --global alias.co=checkout
+      git config --global alias.last=log -1
+      git config --global alias.lg=log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+      ```
+
+
+### 9. 参考资料
 
   + [廖云峰博客git][1]
   + [git官方文档][2]
