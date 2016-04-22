@@ -83,8 +83,13 @@
       git config --global alias.lg=log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
       ```
 
+### 9. 合并另外的分支中的文件或文件夹，
 
-### 9. 参考资料
+[参考博文][3]
+
+  + 例如在`master`分支中，合并另外一个分支`dev`中一个目录`babala/xiaomoxian`, 那么你需要切换到`master`分支。 执行`git checkout dev -- babala/xiaomoxian`就可以了, 之后愉快的`git commit -m "merge message"`就大功告成了
+
+### 10. 参考资料
 
   + [廖云峰博客git][1]
   + [git官方文档][2]
@@ -92,5 +97,6 @@
 
 [1]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
 [2]: https://git-scm.com/documentation
+[3]: https://ar.al/2891/
 [git_exe_link]: https://github.com/git-for-windows/git/releases/download/v2.8.1.windows.1/Git-2.8.1-64-bit.exe
 [tortoisegit]: https://tortoisegit.org/
