@@ -68,24 +68,23 @@
       ```
       git config --global user.name denis
       git config --global user.email denis_lton@hotmail.com
-      git config --global push.default=simple
-      git config --global credential.helper=store
-      git config --global color.ui=true
-      git config --global core.editor=vim
-      git config --global core.autocrlf=false               # 保证是\n为结尾，保证不同系统同时开发
-      git config --global core.safecrlf=true                # 若有windows换行符则拒绝提交
-      git config --global merge.tool=vimdiff
-      git config --global alias.st=status
-      git config --global alias.cm=commit
-      git config --global alias.br=branch
-      git config --global alias.co=checkout
-      git config --global alias.last=log -1
-      git config --global alias.lg=log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+      git config --global push.default simple
+      git config --global credential.helper store
+      git config --global color.ui true
+      git config --global core.editor vim
+      git config --global core.autocrlf false               # 保证是\n为结尾，保证不同系统同时开发
+      git config --global core.safecrlf true                # 若有windows换行符则拒绝提交
+      git config --global merge.tool vimdiff
+      git config --global alias.st status
+      git config --global alias.cm commit
+      git config --global alias.br branch
+      git config --global alias.co checkout
+      git config --global alias.last log -1
+      git config --global alias.lg log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
       ```
 
 ### 9. 合并另外的分支中的文件或文件夹，
 
-[参考博文][3]
 
   + 例如在`master`分支中，合并另外一个分支`dev`中一个目录`babala/xiaomoxian`, 那么你需要切换到`master`分支。 执行`git checkout dev -- babala/xiaomoxian`就可以了, 之后愉快的`git commit -m "merge message"`就大功告成了
 
@@ -93,6 +92,7 @@
 
   + [廖云峰博客git][1]
   + [git官方文档][2]
+  + [合并分支文件][3]
 
 
 [1]: http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000
