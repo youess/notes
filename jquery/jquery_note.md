@@ -70,6 +70,17 @@
 
 ### 4. 动画特效
 
+  + `show()`和`hide()`方法用于显示或隐藏页面中的元素。`$(selector).hide/show(speed, [callback])`, `speed`可以为`slow`, `fast`或者毫秒数值。`callback`表示动作完成之后执行的函数
+  + `toggle`可以很好的展示显示和隐藏两种方式。 具体方法和之前的一样，`$(selector).toggle(speed, [callback])`.
+  + 页面滑动元素`slideUp()`和`slideDown()`, 用法和之前一致，前者仅适用**被隐藏的元素**，后者则**相反**。
+  + 同样的还有`slideToggle`方法可以实现滑动效果，可以用两张图片实现不同的变化。
+  + 淡入淡出的效果，`fadeIn`和`fadeOut`。
+  + 淡入淡出的不透明度，`fadeTo`，用法：`$(selector).fadeTo(speed, opacity, [callback])`
+  + 简单的自定义动画效果。`$(sel).animate({css_params}, speed, [callback])`，逐渐变大和位置的移动(`position`需为`absolute`或者`relative`)。
+  + 停止以上的动画效果。`$(selector).stop([clearQueue], [goToEnd])`, 参数都为布尔类型，前者表示是否停止正在执行的动画，后者表示是否完成正在执行的动画，默认都为`false`
+  + 延时跟停止差不多，不过停止一些时间后，动画为继续完成未完成的动作。`$(selecor).delay(time_duration)`，毫秒级别。
+
+
 ### 5. Ajax应用
 
 ### 6. 常用插件
