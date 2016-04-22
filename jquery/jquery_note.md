@@ -1,6 +1,6 @@
 ## Jquery 基础用法
 
-4/22/2016 12:04:23 AM 
+4/22/2016 12:04:23 AM
 
 ### 1. 选择器
 
@@ -63,16 +63,25 @@
   + 绑定元素的事件。`$(selector).bind(event,[data] function)`, 多个`event`需要用空格隔开(或)
   + 页面切换事件方法。`$(selector).hover(over，out)`, over, out表示鼠标停留和离开两个事件函数
   + `toggle`, 1.8后的版本api发生了变化，注意查看api, 最新[toggle api][jquery-toggle]
+  + 手动触发指定事件. `$(selector).trigger(event)`
+  + focus事件在元素获取焦点时触发，如点击文本框时，触发该事件；而blur事件则在元素丢失焦点时触发，如点击除文本框的任何元素，都会触发该事件。`$(selector).bind("focus/blur", function())`
+  + 当一个元素的值发生变化时，将会触发change事件，例如在选择下拉列表框中的选项时，就会触change事件。`$(selector).bind("change", function())`
+  + 与bind()方法相同，live()方法与可以绑定元素的可执行事件，除此相同功能之外，live()方法还可以绑定动态元素，即使用代码添加的元素事件(绑定事件之后添加的代码也可以操作)。 `$(selector).live(event,[data],fun)`
 
 ### 4. 动画特效
+
 ### 5. Ajax应用
+
 ### 6. 常用插件
+
 ### 7. UI插件
+
 ### 8. 工具类函数
+
 ### 9. 其他
 
 ### 10. 参考资料
-  
+
   + [imooc jquery基础][1]
 
 
