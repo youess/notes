@@ -1,0 +1,22 @@
+
+.hidden {
+    display: none;
+}
+.showli {
+    display: list-item;
+}
+
+.demo-box {
+    height: 50px;
+    width: 50px;
+    position: absolute;
+    padding: 10px;
+    margin-left: 150px;
+    margin-top: 150px;
+    background-color: #ccc;
+    border: 1px solid yellow;
+}
+
+.button-box {
+    position: relative;
+}
