@@ -54,7 +54,7 @@
   + 复制选择元素 `$(selector).clone()`
   + 替换内容 `$(selector).replaceWith(content)`和`$(content).replaceAll(selector)`
   + 添加额外的标签。`$(selector).wrap(wrapper)`和`$(selector).wrapInner(wrapper)`, 前者用于包裹元素本身，后者则用于包裹元素中的内容
-  + `$(selector).each(function(index))` 遍历选择元素集中的各个标签(index 0->n-1), 函数里面用`this`表示
+  + `$(selector).each(function(index))` 遍历选择元素集中的各个标签(index 0->n-1), 函数里面用`this`表示。还可以如此用`$.each(dataSet, function(index, data))`
   + `remove()`方法删除所选元素本身和子元素，该方法可以通过添加过滤参数指定需要删除的某些元素，而`empty()`方法则只删除所选元素的子元素
 
 ### 3. 事件与应用
@@ -82,6 +82,16 @@
 
 
 ### 5. Ajax应用
+
+  + 使用`load()`方法通过Ajax请求加载服务器中的数据，并把返回的数据放置到指定的元素中, `load(url,[data],[callback])`, Ajax不能跨域，所以url应该用绝对的URL, 直接加载html页面
+  + 使用`getJSON()`方法可以通过Ajax异步请求的方式，获取服务器中的数据，并对获取的数据进行解析，显示在页面中。 `$.getJSON(url, [data], [callback])`, 加载json并解析
+  + 使用`getScript()`方法异步请求并执行服务器中的JavaScript格式的文件。`$.getScript(url, [callback])`
+  + `get()`方法，采用GET方式向服务器请求数据，并通过方法中回调函数的参数返回请求的数据。`$.get(url,[callback],dataType)`, 可以[参考文档](https://api.jquery.com/jquery.get/)
+  + `post()`方法，`$.post(url,[data],[callback])` 发送数据到服务器，然后server将处理结果返回页面
+  + 使用`serialize()`方法可以将表单中有name属性的元素值进行序列化，生成标准URL编码文本字符串，直接可用于ajax请求。例如`$("form").serialize()`
+  + `$.ajax([setting])`方法，`setting`是一个字典，包括了url, data, dataType, success等属性。具体还是查看[API](http://api.jquery.com/jquery.ajax/)为准
+  + 使用`ajaxSetup([setting_options])`方法可以设置Ajax请求的一些全局性选项值，设置完成后，后面的Ajax请求将不需要再添加这些选项值
+  + `ajaxStart()`和`ajaxStop()`方法是绑定Ajax事件。`ajaxStart()`方法用于在Ajax请求发出前触发函数，`ajaxStop()`方法用于在Ajax请求完成后触发函数。`$(selector).ajaxStart/Stop(function())`
 
 ### 6. 常用插件
 
