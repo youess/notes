@@ -3,28 +3,55 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width">
-        <title>Jquery test page</title>
+        <title>Challenge 1</title>
+        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <style type="text/css" media="screen">
-
-.red {
-    background-color: red;
-}
-.blue {
-    background-color: blue;
-}
+        .hidden {
+            display: none;
+        }
+        .showli {
+            display: list-item;
+        }
         </style>
     </head>
     <body>
-        <div id="t1">
-            click me, try!
+
+        <div>
+            <h2>葫芦娃</h2>
+            <ul>
+                <li>大娃</li>
+                <li>二娃</li>
+                <li>三娃</li>
+                <li>四娃</li>
+                <li class="hidden">五娃</li>
+                <li class="hidden">六娃</li>
+                <li>七娃</li>
+            </ul>
+            <button id="demo" type="button">更多</button>
         </div>
-        <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script type="text/javascript" charset="utf-8">
-            $("#t1").bind("click", function() {
-                $(this).addClass("red");
-                // $(this).unbind("click");
+            $(function() {
+                /* 第一种方法
+                $("#demo").bind("click", function() {
+                    if ($(".hidden").length) {
+                        $(this).text("简化");
+                        $(".hidden").addClass("showli");
+                        $(".hidden").removeClass("hidden");
+                    } else {
+                        $(this).text("更多");
+                        $(".showli").addClass("hidden");
+                        $(".showli").removeClass("showli");
+                    }
+                });
+                */
+                // 还是第二种方法比较简便
+                $("#demo").click(function() {
+                    $(this).text(function(i, text) {
+                        return text === "更多" ? "简化" : "更多"
+                    });
+                    $(".hidden").toggle("slow");
+                })
             });
         </script>
     </body>
 </html>
-
