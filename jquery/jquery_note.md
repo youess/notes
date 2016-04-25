@@ -95,6 +95,16 @@
 
 ### 6. 常用插件
 
+  + 表单验证插件, `jquery.validate.js`和支持中文的提示信息`jquery.validate.message_cn.js`。 可以参考[这篇博文](http://www.cnblogs.com/hejunrex/archive/2011/11/17/2252193.html)了解更多
+  + 无缝将html表单升级为ajax方式的插件`jquery.form.js`。 `$(form).ajaxForm ({options})`等, 关于其中的一些误解，可以参考[这个回答](http://stackoverflow.com/questions/1960240/jquery-ajax-submit-form)
+  + 图片灯箱插件`lightBox`。mooc上面介绍的是`jquery.notesforlightbox.js`插件，现在在github上比较高人气的有`lightbox2`，[点我](https://github.com/lokesh/lightbox2)
+  + 图片放大器`jquery-jqzoom.js`，比如淘宝图片的放大镜查看功能
+  + cookie插件`jquery-cookie.js`，方便管理浏览器cookie
+  + 自动补全插件`jquery.autocomplete.js`，在用户输入表单有比较多的重复时，很有用
+  + 右键菜单插件`jquery.contextmenu.js`, 右键菜单插件可以绑定页面中的任意元素，绑定后，选中元素，点击右键，便通过该插件弹出一个快捷菜单，点击菜单各项名称执行相应操作
+  + 自定义的`lifocuscolor`插件可以在`<ul>`元素中，鼠标在表项`<li>`元素移动时，自定义其获取焦点时的背景色，即定义`<li>`元素选中时的背景色，[源码](http://www.imooc.com/data/jquery.lifocuscolor.js), [IBM教程](http://www.ibm.com/developerworks/cn/web/wa-jqplugin/)
+
+
 ### 7. UI插件
 
 ### 8. 工具类函数
