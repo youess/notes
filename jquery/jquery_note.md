@@ -107,6 +107,16 @@
 
 ### 7. UI插件
 
+  + 拖曳插件, `draggable`, [api文档](https://jqueryui.com/draggable/)
+  + 放置插件, `droppable`, [api文档](https://jqueryui.com/droppable/)
+  + 拖曳排序插件, `sortable`, [api文档](https://jqueryui.com/sortable/)
+  + 面板折叠插件, `accordion`, [api文档](https://jqueryui.com/accordion/)
+  + 选项卡插件, `tabs`，[api文档](https://jqueryui.com/tabs/)
+  + 对话框插件, `dialog`, [api文档](https://jqueryui.com/dialog/)
+  + 菜单工具插件, `menu`, [api文档](https://jqueryui.com/menu/)
+  + 微调按钮插件, `spinner`, [api文档](https://jqueryui.com/spinner/)
+  + 工具提示插件, `tooltip`, [api文档](https://jqueryui.com/tooltip/)
+
 ### 8. 工具类函数
 
 ### 9. 其他
