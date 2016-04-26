@@ -1,0 +1,85 @@
+
+R内置函数, dplyr与data.table等价与比较
+
+```{r, echo=FALSE, message=FALSE}
+require("knitr")
+opts_chunk$set(comment=NA, out.format="html", message=FALSE)
+```
+
+```{r prepare}
+require("magrittr")
+require("dplyr")
+require("tidyr")
+require("data.table")
+require("microbenchmark")
+set.seed(123)
+n <- 100
+a <- data.frame(cat1 = rep(LETTERS[1:3], each=3 * n),
+                cat2 = rep(letters[21:23], 3 * n),
+                n1 = sample(1:( 3 * n ), replace=T))
+b <- data.frame(cat1 = sample(rep(c('A', 'B', 'D'), 3), 9),
+                n2 = rep(1:3, each= 3))
+dta <- data.table(a)
+dtb <- data.table(b)
+# NASA <- dplyr::nasa
+# attributes(NASA)
+# attributes(NASA$mets)
+# dim(NASA)
+# NASA$dim
+```
+
+
+```{r subset}
+a %>% subset(cat1 == 'A' & cat2 == 'u') %>% head
+a %>% dplyr::filter(cat1 == 'A' & cat2 == 'u') %>% head
+dta %>% { .[cat1 == 'A' & cat2 == 'u'] } %>% head
+microbenchmark(
+               "base_subset" = a %>% subset(cat1 == 'A' & cat2 == 'u'),                # unexpectly work best
+               "dplyr_filter" = a %>% dplyr::filter(cat1 == 'A' & cat2 == 'u'),
+               "dt_subset" = dta %>% { .[cat1 == 'A' & cat2 == 'u'] }
+               )
+```
+
+```{r group by}
+aggregate(n1 ~ cat1 + cat2, a, sum)
+a %>% group_by(cat1, cat2) %>% summarise(n1 = sum(n1))
+dta[, .(n1 = sum(n1)), by=.(cat1, cat2)]
+microbenchmark(
+  "base_aggregate" = aggregate(n1 ~ cat1 + cat2, a, sum),
+  "dplyr_group_by" = a %>% group_by(cat1, cat2) %>% summarise(n1 = sum(n1)),           # 速度更快
+  "dt_group_by" = dta[, .(n1 = sum(n1)), by=.(cat1, cat2)]                             # fastest
+)
+```
+
+```{r mutate}
+base_mutate <- function() {
+  a$val <- 2 * a$n1
+  a
+}
+base_mutate() %>% head
+a %>% mutate(val = 2 * n1) %>% head
+microbenchmark(
+  "base_mutate" = base_mutate(),
+  "dplyr_mutate" = a %>% mutate(val = 2 * n1)                                         # 效率不是很高，重在方便
+)
+```
+
+```{r inner join, warning=FALSE}
+d1 <- merge(a, b, by="cat1") %>% {.[order(.$cat1, .$cat2, .$n1, .$n2), ]}
+d2 <- dplyr::inner_join(a, b, by="cat1") %>% {.[order(.$cat1, .$cat2, .$n1, .$n2), ]}
+sum(d1 != d2)
+microbenchmark(
+  "base_merge" = merge(a, b, by="cat1"),
+  "dplyr_inner_join" = dplyr::inner_join(a, b, by="cat1")                            # 快，但是要求data frame不要有factor变量，容易有warns，虽然没有影响，但是看起来不舒服
+)
+```
+
+```{r right join, warning=FALSE}
+d1 <- merge(a, b, by="cat1", all.y = TRUE) %>% {.[order(.$cat1, .$cat2, .$n1, .$n2), ]}
+d2 <- dplyr::right_join(a, b, by="cat1") %>% {.[order(.$cat1, .$cat2, .$n1, .$n2), ]}
+sum(d1 != d2, na.rm=TRUE)
+microbenchmark(
+  "base_merge" = merge(a, b, by="cat1", all.y = TRUE),
+  "dplyr_right_join" = dplyr::right_join(a, b, by="cat1")                           # 快，同样如上
+)
+```
