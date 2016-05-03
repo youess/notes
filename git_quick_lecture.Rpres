@@ -1,0 +1,82 @@
+Git quick lecture
+========================================================
+author: denis
+date: 2016-05-03
+autosize: true
+
+Introduction
+========================================================
+
+- Version control tool
+- Feature
+- History
+
+Introduction - Why Git?
+========================================================
+
+- decenteralized.
+- fast.
+- full history record.
+
+Installation
+========================================================
+
+- Linux. `apt-get install git`
+- Mac. `brew install git` or `port install git`
+- Windows. Here is the download address:　`https://git-scm.com/download/win`
+
+Basic Conception
+=======================================================
+
+- Repository.
+- Branch.
+- Status.
+
+Concepts Figure
+========================================================
+
+![distributed repository](./git_quick_lecture-figure/git_distribute.png)
+
+
+Basic Manipulation
+========================================================
+
+- `git init`
+- `git clone`
+- `git add`
+- `git commit`
+- `git pull`
+- `git push`
+
+**Note**: Keep your stage area clean.
+
+Undo
+========================================================
+
+- `git checkout -- filename`
+- `git reset HEAD filename`
+- `git reset --hard log_id`
+
+Branch
+========================================================
+
+- `git checkout -b bname`
+- `git branch` and `git checkout bname`
+
+Merge
+========================================================
+
+- whole branch. `git merge --no-ff -m "comments" feature_branch`
+- specific file or direcotry. `git checkout feature_branch -- blabla/blabla` and `git commit -m "comments"`
+
+
+Configuration
+=========================================================
+
+- `git config --global core.autocrlf false`
+- `git config --global core.safecrlf true`
+
+Keep synchronous with remote dev branch
+=========================================================
+
+- `git checkout -b branch_name origin/branch_name`
