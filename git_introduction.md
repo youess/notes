@@ -63,7 +63,7 @@
 
   + 查看配置信息 `git config --list`
   + linux所有用户配置文件`/etc/gitconfig`( `git config --system` ), 当前用户配置文件`~/.gitconfig` (`git config --global`)，本地仓库类配置文件`./.git/config` (`git config --local`)，优先级别从低到高
-  + 免密码同步项目。添加文件`~/.git-credentials`, `github`为例 `https://<username>:<password>@github.com` 同时配置`git config --global credential.helper=store`
+  + 免密码同步项目。添加文件`~/.git-credentials`, `github`为例 `https://<username>:<password>@github.com` 同时配置`git config --global credential.helper=store`, 存储密码一段时间可以设置`git config --global credential.helper cache` 默认会保存15分钟的密码, 或者延长保存密码时间为一个小时`git config --global credential.helper "cache --timeout=3600"`
   + 常见有用的配置
 
       ```
