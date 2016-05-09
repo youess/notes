@@ -14,16 +14,29 @@ Introduction
 Introduction - Why Git?
 ========================================================
 
-- decenteralized.
-- fast.
-- full history record.
+- Decenteralized.
+- Fast.
+- Full history record.
 
 Installation
 ========================================================
 
-- Linux. `apt-get install git`
-- Mac. `brew install git` or `port install git`
-- Windows. Here is the download address:　`https://git-scm.com/download/win`
+- Linux.
+
+```
+  apt-get install git
+```
+
+- Mac.
+
+```
+  brew install git              # or
+  port install git
+```
+
+- Windows.
+
+  Here is the download address:　`https://git-scm.com/download/win`
 
 Basic Conception
 =======================================================
@@ -32,51 +45,134 @@ Basic Conception
 - Branch.
 - Status.
 
-Concepts Figure
+Concepts Figure -- decentralize
 ========================================================
 
-![distributed repository](./git_quick_lecture-figure/git_distribute.png)
+<div align="center"> <img src="./git_quick_lecture-figure/git_distribute.png"> </div>
 
+Concepts Figure -- git file status
+========================================================
+
+![file status](./git_quick_lecture-figure/git-lifecycle.png)
+
+Concepts Figure -- git branches
+========================================================
+
+<div align="center"> <img src="./git_quick_lecture-figure/git-branch.png"> </div>
 
 Basic Manipulation
 ========================================================
 
-- `git init`
-- `git clone`
-- `git add`
-- `git commit`
-- `git pull`
-- `git push`
+```
+  git init            # 初始化
+  git clone           # clone一个仓库地址
+  git add             # 添加文件
+  git commit          # 将文件提交到暂存区
+  git pull            # 同步远程仓库文件
+  git push            # 将本地文件同步到远程仓库
+```
 
 **Note**: Keep your stage area clean.
 
 Undo
 ========================================================
 
-- `git checkout -- filename`
-- `git reset HEAD filename`
-- `git reset --hard log_id`
+- before file commit
+
+```
+  git checkout -- filename
+```
+
+- after file commit
+
+```
+  git reset HEAD filename
+  git log                              # 查看commit log id
+  git reset --hard log_id
+```
 
 Branch
 ========================================================
 
-- `git checkout -b bname`
-- `git branch` and `git checkout bname`
+- Create a branch and switch to that branch meanwhile.
+
+```
+  git checkout -b bname
+```
+
+- List branches and switch to selected branch.
+
+```
+  git branch                   # and
+  git checkout bname
+```
 
 Merge
 ========================================================
 
-- whole branch. `git merge --no-ff -m "comments" feature_branch`
-- specific file or direcotry. `git checkout feature_branch -- blabla/blabla` and `git commit -m "comments"`
+- whole branch.
+
+```
+  git merge --no-ff -m "comments" feature_branch
+```
+
+- specific file or direcotry.
+
+```
+  git checkout feature_branch -- blabla/blabla
+  git commit -m "comments"
+```
 
 
 Configuration
 =========================================================
 
-- `git config --global core.autocrlf false`
-- `git config --global core.safecrlf true`
++ Keep your file line end with "\n", make sure your text/code editor's setting.
 
-Keep synchronous with remote dev branch
+```
+  git config --global core.autocrlf false
+  git config --global core.safecrlf true
+```
+
++ Authorized your identity.
+
+```
+  git config --global user.name denis
+  git config --global user.email denis.deng@derbysoft.com
+```
+
++ Cache your git repository password
+
+```
+  git config --global credential.helper cache
+```
+
+Keep synchronous with remote branch
 =========================================================
 
-- `git checkout -b branch_name origin/branch_name`
+Default branch master, other branch should,
+
+```
+  git checkout -b branch_name origin_branch_name
+```
+
+Use gitlab
+=========================================================
+
+- Visit the url: [http://10.200.106.36/](http://10.200.106.36/).
+
+- Register and Login with your own derbysoft email account.
+
+- Clone the repository at your local machine.
+
+```
+  git clone http://10.200.106.36/git/dplatform.git
+```
+
+  and create a `dev` local branch
+
+```
+  git checkout -b dev && git pull
+```
+
+- Keep your code commit and push to branch `dev`, and create merge request on gitlab page.
