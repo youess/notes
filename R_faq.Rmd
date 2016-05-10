@@ -1,0 +1,19 @@
+
+# R常见问题
+
+- 日期语言的显示，比如想要的是英文的格式，结果是中文格式
+
+```
+sessionInfo()              # 查看LC_TIME的值，如果是中文的编码，就改下这个变量值
+Sys.setlocale("LC_TIME", "en_US.UTF-8")          # for linux
+Sys.setlocale("LC_TIME", "english")              # for windows
+
+weekdays(Sys.Date())
+Sys.setlocale("LC_TIME", "zh_CN.UTF-8")
+weekdays(Sys.Date())
+```
+
+
+# Reference:
+
+1: http://stackoverflow.com/questions/8145886/change-time-locale-for-r
