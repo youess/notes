@@ -1,6 +1,6 @@
-Git quick lecture
+Quick Git Training
 ========================================================
-author: denis
+author: Denis
 date: 2016-05-03
 autosize: true
 
@@ -176,3 +176,32 @@ Use gitlab
 ```
 
 - Keep your code commit and push to branch `dev`, and create merge request on gitlab page.
+
+Use gitlab -- Cont.
+=========================================================
+
+
+### Overview of the project
+
+![request a merge from gitlab](./git_quick_lecture-figure/merge_request1.png)
+
+Use gitlab -- Cont.
+=========================================================
+
+### Files that upload to the repository
+
+![request a merge from gitlab](./git_quick_lecture-figure/merge_request2.png)
+
+Use gitlab -- Cont.
+=========================================================
+
+### Create a request to merge new commit.
+
+![request a merge from gitlab](./git_quick_lecture-figure/merge_request3.png)
+
+Use gitlab -- Cont.
+=========================================================
+
+### Create an issue to assign people to fix the bugs
+
+![request a merge from gitlab](./git_quick_lecture-figure/merge_request4.png)
