@@ -77,16 +77,21 @@ Basic Manipulation
 Undo
 ========================================================
 
-- before file commit
+- before file commit, in work directory, but not in staged area
 
 ```
   git checkout -- filename
 ```
 
-- after file commit
+- before file commit, in staged area
 
 ```
   git reset HEAD filename
+```
+
+- after file commit, version back
+
+```
   git log                              # 查看commit log id
   git reset --hard log_id
 ```

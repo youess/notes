@@ -89,7 +89,28 @@
 
   + 例如在`master`分支中，合并另外一个分支`dev`中一个目录`babala/xiaomoxian`, 那么你需要切换到`master`分支。 执行`git checkout dev -- babala/xiaomoxian`就可以了, 之后愉快的`git commit -m "merge message"`就大功告成了
 
-### 10. 参考资料
+### 10. 暂时保存修改的文件，而不至于需要每次都commit到暂存区
+
+总觉得还是保存一个暂存的就可以了，多了反而不知所措了
+
+```
+git stash            # 将工作杂乱的工作区暂时收留
+git stash pop        # 将最近一个暂时收留的工作区抛出来
+git stash list       # 列出收留的工作区
+```
+
+### 11. 删除远程分支和标签
+
+```
+# local branch and tag, 同时可以使用`-D`强行删除，而不能恢复内容
+git branch -d branch_name
+git tag -d tag_name
+
+# remote branch and tag
+git push origin --delete branch_name/tag_name
+```
+
+### 12. 参考资料
 
   + [廖云峰博客git][1]
   + [git官方文档][2]
