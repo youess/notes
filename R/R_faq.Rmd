@@ -13,6 +13,10 @@ Sys.setlocale("LC_TIME", "zh_CN.UTF-8")
 weekdays(Sys.Date())
 ```
 
+- 用`devtools`创建新的R包
+
+1. 用`RStudio`进行创建工作，对于编译R包非常的方便，尤其需要使用右上窗口的`check`功能
+
 
 # Reference:
 
