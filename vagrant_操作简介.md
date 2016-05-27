@@ -128,6 +128,10 @@ sudo mount /dev/cdrom /media/cdrom             # 如果在/media/cdrom加载这�
 sudo ./VBoxLinuxAdditions.run
 ```
 
+3. 不小心把虚拟机中的authorized_keys删掉导致authentication一直失败的方法
+
+删除vagrant虚拟目录的`insecure_private_key`，以及最重要的`.vagrant/machines/solar/virtualbox/private_key`然后重启就可以重新插入一个新的密钥对了
+
 ### gem源替换
 
 1. 查看源list
@@ -147,6 +151,7 @@ gem sources -r http://...
 ```
 gem sources -a http://...
 ```
+
 
 [vagrant doc]: https://docs.vagrantup.com/v2/
 [vagrant download]: http://www.vagrantup.com/downloads
