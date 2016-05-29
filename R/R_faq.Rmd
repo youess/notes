@@ -3,7 +3,7 @@
 
 - 日期语言的显示，比如想要的是英文的格式，结果是中文格式
 
-```
+```{r}
 sessionInfo()              # 查看LC_TIME的值，如果是中文的编码，就改下这个变量值
 Sys.setlocale("LC_TIME", "en_US.UTF-8")          # for linux
 Sys.setlocale("LC_TIME", "english")              # for windows
@@ -15,8 +15,20 @@ weekdays(Sys.Date())
 
 - 用`devtools`创建新的R包
 
-1. 用`RStudio`进行创建工作，对于编译R包非常的方便，尤其需要使用右上窗口的`check`功能
+1. 用`RStudio`进行创建工作，对于编译R包非常的方便，尤其需要使用右上窗口的`check`功能, 能够自动的跑自己写的`examples code`，帮助发现潜在的错误可能
+2. `devtools::document()`, 在目录中需要对编写的`roxygen2`文档进行生成，没有文档便不会被纳入包的功能里面，汗
 
+
+- R中NA值逻辑判断的问题
+
+```{r}
+d <- data.frame(a = rep(NA, 5), b = 1:5)
+d$a[1:3] <- 1
+with(d, a == 1 & b > 10)        # 全为false
+with(d, a == 1 & b < 3)         # 有na值出现
+```
+
+**结论:** R中false在逻辑判断是最优先的，true的话还要考虑是不是有NA值出现
 
 # Reference:
 

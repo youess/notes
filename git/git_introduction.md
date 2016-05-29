@@ -82,6 +82,9 @@
       git config --global alias.co checkout
       git config --global alias.last log -1
       git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+      # better diff visual tools
+      git config --global diff.tool icdiff
+      git config --global alias.df icdiff
       ```
 
 ### 9. 合并另外的分支中的文件或文件夹，
