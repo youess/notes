@@ -18,9 +18,9 @@ sudo apt-get install -y mongodb-org
 修改默认的数据库位置, 编辑`/etc/mongodb.conf`将`dbpath`的值修改为自己需要存放的位置，以及修改`port`
 
 如果有`errno 111`错误的话，先删除`sudo rm /var/lib/mongodb/mongod.lock`然后重启`sudo service mongod restart`
+如果有不能启动数据库的情况下，请把`dbpath`的用户和组名修改为mongodb, `sudo chown -R mongodb:mongodb dbpath`
 
 打开mongodb的时候会有`Transparent huge pages`的警告出现, 参考[这个网址][2]进行配置
-
 
 
 
