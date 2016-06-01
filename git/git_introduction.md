@@ -113,7 +113,15 @@ git tag -d tag_name
 git push origin --delete branch_name/tag_name
 ```
 
-### 12. 参考资料
+### 12. 添加多个远程仓库
+
+```
+git remote add alt <alt-machine-git-address>
+# git remote update
+git push alt --all
+```
+
+### 参考资料
 
   + [廖云峰博客git][1]
   + [git官方文档][2]
