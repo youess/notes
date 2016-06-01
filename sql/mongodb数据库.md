@@ -23,6 +23,29 @@ sudo apt-get install -y mongodb-org
 打开mongodb的时候会有`Transparent huge pages`的警告出现, 参考[这个网址][2]进行配置
 
 
+## 删除表
+
+```
+# assume the collection name is "sbl"
+db.sbl.drop()
+# if collection name is same as binding function, will get an TypeError, say collection name is "group"
+db.getCollection("group").drop()
+```
+
+## 关于rmongodb导入数据时，日期引起的问题
+
+`mongoose`默认的日期格式导入到`mongodb`中是ISO格式的，但是用R来做的时候如果日期只是`Date`格式，则导入到`mongodb`中是`String`的，所以做筛选的时候总是不对, 需要将R中的日期格式用`as.POSIXct`进行转换才行
+
+
+## mongo查询
+
+> 1. 有效的查询数据库中某一属性是array时候，长度大于1的记录
+
+```
+# 语句用来查找oid段是否第二个元素存在来进行索引，比用$gt更加有效率
+db.hotels.find( { "oid.1": { $exists: true } } )
+```
+
 
 [1]: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 [2]: https://docs.mongodb.com/manual/tutorial/transparent-huge-pages/
