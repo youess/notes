@@ -30,6 +30,13 @@ with(d, a == 1 & b < 3)         # 有na值出现
 
 **结论:** R中false在逻辑判断是最优先的，true的话还要考虑是不是有NA值出现
 
+- R中关于[debug的问题][2]
+
+  `traceback`并不能追踪到发生错误后又继续执行正确语句的错误，有时候很弱
+  `options(error = recover)`,执行错误程序后，能够立即进入debug程序，便于调试
+  当然用Rstudio的一些调试工具也是杠杠的
+
 # Reference:
 
 1: http://stackoverflow.com/questions/8145886/change-time-locale-for-r
+2: http://stackoverflow.com/questions/4442518/general-suggestions-for-debugging-in-r
