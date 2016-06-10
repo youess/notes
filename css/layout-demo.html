@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HTML Layout Demo</title>
+	<style>
+		*{margin: 0; padding: 0;}
+		#wrapper {
+			width: 800px;
+			margin: 0px auto;
+		}
+		#header {}
+		.navbar {
+			background-color: #ccc;
+			font: bold 24px/36px Arial, Helvetica, sans-serif;
+			height: 50px;             /* outer height */
+		}
+		.navbar .logo {
+			display: inline-block;
+			font-size: 30px;
+			font-weight: 700;
+			letter-spacing: 1px;
+			float: left;
+			margin-left: 10px;
+			line-height: 50px;         /* make text in middle */
+			height: inherit;           /* make the block same high as navbar */
+		}
+		.navbar > ul {
+			list-style: none;
+			display: inline-block;
+			margin: 0 20px;
+			float: left;               /* make it horizontal */
+
+		}
+		.navbar > ul > li {
+			padding-left: 10px;
+			float: left;
+			line-height: 50px;         /* make text in middle */
+			height: inherit;           /* make the block same high as navbar */
+		}
+		.banner {
+			width: 100%;
+			overflow: hidden;         /* clear float */
+		}
+		.banner .inner {
+			max-width: 400px;
+			text-align: center;
+			margin: 0px auto;
+			border: solid 2px #644141;
+		}
+		#main-body section {
+			width: 100px;
+			border: solid 2px #ccc;
+			border-radius: 50%;                 /* 做头像比较好 */
+			-webkit-webkit-border: 50%;
+			-moz-webkit-border: 50%;
+			-ms-webkit-border: 50%;
+			-o-webkit-border: 50%;
+		}
+		#footer {
+			font-size: 15px;
+			font-weight: 200;
+			text-align: center;
+			width: 50%;
+			margin: 0px auto;         /* 自动居中 */
+			border: dashed 2px #2FC6B3;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrapper">
+		<header id="header">
+			<nav class="navbar">
+				<div class="logo">Name</div>
+				<ul>
+					<li>Func1</li>
+					<li>Func2</li>
+					<li>Func3</li>
+				</ul>
+			</nav>
+			<section class="banner">
+				<div class="inner">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt eligendi ab explicabo nesciunt dolores quae enim officia adipisci, ullam officiis praesentium, eum error magni quis, velit ad quaerat natus architecto.</div>
+			</section>
+		</header>
+		<div id="main-body">
+			<section>Part 1</section>
+			<section>Part 2</section>
+			<section>Part 3</section>
+		</div>
+		<footer id="footer">Contact: denis_lton@hotmail.com</footer>
+	</div>
+</body>
+</html>
