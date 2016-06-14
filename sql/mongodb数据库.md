@@ -36,6 +36,17 @@ db.getCollection("group").drop()
 
 `mongoose`默认的日期格式导入到`mongodb`中是ISO格式的，但是用R来做的时候如果日期只是`Date`格式，则导入到`mongodb`中是`String`的，所以做筛选的时候总是不对, 需要将R中的日期格式用`as.POSIXct`进行转换才行
 
+同时需要更新某一个字段的值时，我们可以使用下面[这种方法][3]，
+在mongo的shell中查询并更替记录中的`field`，再保存到数据库当中,
+有200多万条记录的时候，发现还是比较慢来着
+
+```
+db.collection_name.find().forEach(function(e) {
+    e.date = ISODate(e.date);
+    db.collection_name.save(e);
+});
+```
+
 
 ## mongo查询
 
@@ -49,3 +60,4 @@ db.hotels.find( { "oid.1": { $exists: true } } )
 
 [1]: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 [2]: https://docs.mongodb.com/manual/tutorial/transparent-huge-pages/
+[3]: http://stackoverflow.com/questions/15473772/how-to-convert-from-string-to-date-data-type
