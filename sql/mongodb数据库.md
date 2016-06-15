@@ -57,6 +57,30 @@ db.collection_name.find().forEach(function(e) {
 db.hotels.find( { "oid.1": { $exists: true } } )
 ```
 
+mongo的去重查询
+
+只看到用`distinct`去查看单个field的元素
+
+在mongo shell中，利用`group`可以执行相关的group by的操作，具体例子查看mongo的文档api
+
+```
+db.cc.group({
+  key: {},
+  cond: {},
+  reduce: function() {},
+  initial: {}
+})
+```
+
+mongoose当中还只封装了`aggregate`的功能, `group`还没有
+
+```
+ModelName.aggregate([
+ {$match: {}},
+ {$group: {}}
+])
+```
+
 
 [1]: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/
 [2]: https://docs.mongodb.com/manual/tutorial/transparent-huge-pages/
