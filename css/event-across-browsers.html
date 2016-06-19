@@ -1,0 +1,81 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<div id="parent">
+	<input type="button" value = "按钮" id="btn">
+</div>
+
+
+<script>
+	var eventUtil = {
+		// 绑定事件
+		addEvent: function(elem, type, handler) {
+			if (elem.addEeventListener) {
+				elem.addEeventListener(type, handler, false);
+			} else if (elem.attachEvent) {
+				elem.attachEvent('on' + type, handler);
+			} else {
+				elem["on" + type] = handler;
+			}
+		},
+		// 取消绑定的事件
+		removeEvent: function(elem, type, handler) {
+			if (elem.removeEeventListener) {
+				elem.removeEeventListener(type, handler, false);
+			} else if (elem.detachEvent) {
+				elem.detachEvent(type, handler);
+			} else {
+				elem["on" + type] = null;
+			}
+		},
+		// 标准化浏览器的event对象
+		standardizeEvent: function(ev) {
+			return ev || window.event;
+		},
+		// 获取event的类型
+		getEventInfo: function(ev) {
+			ev = this.standardizeEvent();
+			return {
+				type: ev.type,
+				target: ev.target.nodeName || ev.srcElement.nodeName
+			};
+		},
+		// 阻止浏览器的默认行为
+		preventDefault: function(ev) {
+			ev = this.standardizeEvent(ev);
+			if (ev.preventDefault) {
+				ev.preventDefault();
+			} else {
+				ev.returnValue = false;
+			}
+		},
+		// 阻止冒泡产生
+		stopPropagation: function(ev) {
+			ev = this.standardizeEvent(ev);
+			if (ev.stopPropagation) {
+				ev.stopPropagation();
+			} else {
+				ev.cancerBubble = true;
+			}
+		},
+	};
+	function showMessage(ev) {
+		alert(eventUtil.getEventInfo(ev).target);
+	}
+	var btn = document.getElementById("btn");
+	var box = document.getElementById("parent");
+	eventUtil.addEvent(box, "click", function() {
+		alert("父盒子");
+	});
+	eventUtil.addEvent(btn, "click", function(e) {
+		alert(eventUtil.getEventInfo(e).target);
+		eventUtil.stopPropagation(e);          // this will cancer bubble behavior.
+	});
+</script>
+
+</body>
+</html>
