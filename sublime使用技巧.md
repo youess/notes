@@ -4,13 +4,13 @@
 ctrl + shift + p, package control
 
 ctrl + p, goto anything
-  
+
   - @function_name
   - #文本内容
 
 ### 多行游标
 
-鼠标点击，`ctrl+D`选择加游标，`ctrl+d, ctrl+k, ctrl+d`选择跳过 
+鼠标点击，`ctrl+D`选择加游标，`ctrl+d, ctrl+k, ctrl+d`选择跳过
 
 `alt + F3`选择全部
 
