@@ -1,12 +1,20 @@
 
 ## sublime text3编辑器常用快捷键
 
-ctrl + shift + p, package control
+`ctrl + shift + p`, package control
 
-ctrl + p, goto anything
+`ctrl + p`, goto anything
   
   - @function_name
   - #文本内容
+
+## 代码整块移动
+
+`ctrl + [` 或者 `]`
+
+## toggle侧边栏
+
+`ctrl k, ctrl b`
 
 ### 多行游标
 
