@@ -1,5 +1,5 @@
 
-## Effective Python Note  
+## Effective Python Note
 
 
 1. pythonic
