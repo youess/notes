@@ -1,0 +1,10 @@
+
+
+.push-button {
+    background-color: blue;
+}
+
+.main-button {
+    @extend .push-button;
+    font-weight: bold;
+}

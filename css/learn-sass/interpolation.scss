@@ -1,0 +1,8 @@
+
+// 用变量来表示css中的tag
+
+$selector: article;
+
+#{$selector} {
+    color: #f00;
+}

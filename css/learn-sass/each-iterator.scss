@@ -1,0 +1,8 @@
+
+// 数组中的for循环变量, 如果是一样的话，这样会加大css的体积
+
+@each $big-cat in cheetah, puma, jaguar, panther, tiger, leopard {
+    .#{$big-cat}-picture {
+        padding: 3em;
+    }
+}

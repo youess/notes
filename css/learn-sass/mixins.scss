@@ -1,0 +1,23 @@
+
+
+// mixins 函数可以帮助节省代码量
+
+// @mixin border-radius($radius) {
+//     -webkit-border-radius: $radius;
+//        -moz-border-radius: $radius;
+//         -ms-border-radius: $radius;
+//             border-radius: $radius;
+// }
+//
+// .box { @include border-radius(10px); }
+
+@mixin border-width($thickness) {
+//    -webkit-border-width: $thickness;
+//       -moz-border-width: $thickness;
+//        -ms-border-width: $thickness;
+            border-width: $thickness;
+}
+
+img {
+    @include border-width(10px);
+}

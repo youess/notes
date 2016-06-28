@@ -1,0 +1,10 @@
+
+// border-width, border-color, border-radius
+
+.sassy {
+    border: {                  // 注意这个分号。。。
+        width: 10px;
+        color: red;
+        radius: 5px;
+    }
+}

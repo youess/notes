@@ -1,0 +1,10 @@
+
+// @for $var from start to end
+// @for $var from start through end
+
+// @for $i from 1 through 6
+@for $i from 1 to 7 {
+    h#{$i} {
+        font-size: 24px - 3px * $i;
+    }
+}

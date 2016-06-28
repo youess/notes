@@ -1,0 +1,10 @@
+
+
+// & 表示层级中的父级元素
+
+button {
+    color: black;
+    &:focus {
+        color: red;
+    }
+}

@@ -1,0 +1,10 @@
+
+// do math +, -, *, /
+
+$page-width: 1400px;
+$padding: 20px;
+
+.container {
+    padding: $padding;
+    width: .8 * $page-width - 2 * $padding;
+}
