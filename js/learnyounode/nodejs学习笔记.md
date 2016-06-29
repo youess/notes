@@ -102,3 +102,46 @@ inStream.pipe(map(function(chunk) {
 `res.writeHead(200, {})`设置头信息
 
 `node -pe "require('url').parse('/test?q=1', true);"`
+
+
+
+## Nodejs开发指南笔记
+
+#### 1. `module.exports`和`exports`的区别
+
+`exports`是指向`module.exports`的一个引用，`module.exports`的初始值是`{}`, `require`返回的是`module.exports`
+
+```
+exports.funname = function() {}
+module.exports = functon() {}
+// 错误的示例, exports会指向另外一个不同的内存
+// exports = function() {}
+```
+
+#### 2. 调试工具
+
+`node-inspector`, 出现permission错误的话将node-inspector所在的目录更改权限`sudo chmod -R +rx <node-inspector-path>`, 不过还是用chrome自带的调试工具就不错的
+
+#### 3. 核心模块
+
+###### 1. 只有一个全局对象`global`，其他的都是`global`的属性, 包括了全局变量。
+
+> `process`, 提供与操作系统相关的API
+
+  - `process.argv`. 命令行参数
+  - `process.stdout`, `process.stdin`. 标准输出和输入流
+  - `process.nextTick(cb)`, 为时间循环设置一项任务。缓解Node不是计算密集型，减少每个事件的执行时间
+
+> `console`，控制台标准输出
+
+  - `console.log`, 类似C中的`printf`
+  - `console.error`，标准错误流
+  - `console.trace`, 向标准错误流输出当前的调用栈
+
+###### 2. util
+
+###### 3. events
+
+###### 4. fs
+
+###### 5. http
