@@ -36,7 +36,21 @@ with(d, a == 1 & b < 3)         # 有na值出现
   `options(error = recover)`,执行错误程序后，能够立即进入debug程序，便于调试
   当然用Rstudio的一些调试工具也是杠杠的
 
+- R markdown采用其他语言的引擎
+
+  可以在yihui xie的博文中找到关于`engine.R`的文档
+
+```
+knitr::opts_chunk$set(echo=TRUE,
+                      engine="python",
+                      engine.path="/usr/bin/python3",         # 指定不同版本的python路径
+                      comment="",
+                      message=FALSE,
+                      warning=FALSE)
+```
+
 # Reference:
 
 1: http://stackoverflow.com/questions/8145886/change-time-locale-for-r
 2: http://stackoverflow.com/questions/4442518/general-suggestions-for-debugging-in-r
+3: http://yihui.name/knitr/demo/engines/
