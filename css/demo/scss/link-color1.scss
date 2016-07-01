@@ -1,0 +1,29 @@
+
+$font-family-base: sans-serif;
+
+body {
+  font-family: $font-family-base;
+  margin: 0;
+  padding: 0;
+}
+
+#link-color1 ul {
+  list-style: none;
+  li {
+    display: inline;
+    float: left;
+    padding-right: 20px;
+    a {
+      color: #000;
+      font-size: 24px;
+      text-decoration: none;
+      &:hover, &:focus {
+        color: red;
+        background-color: blue;
+        text-decoration: underline;
+      }
+      &:active { color: #933; }
+      &:visited { color: #bbb; }
+    }
+  }
+}
