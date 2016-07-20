@@ -70,6 +70,14 @@
 
   *容器可以保存快照和加载*
 
+- 临时传送本地文件和容器内文件
+
+  - `docker cp`
+
+- 创建容器互联的网络
+
+  - `docker network`
+
 > ### Dockerfile创建
 
 以`#`作为注释，其他用`INSTRUCTION arguments`，进行指令的说明
@@ -123,17 +131,19 @@
 
 > ### 安全
 
-
+TODO: 平时自己用暂时不考虑，可以查看cheat sheet里面关于安全的讨论
 
 ## 2. 案例
+
+TODO: 添加一个有几个容器的web应用来掌握docker
 
 ## 参考资料
 
 1. [ docker 技术入门与实践 ][1]
 2. [ awesome Docker ][2]
 3. [ docker Cheat Sheet ][3]有很全的命令解释
-4. [docker镜像理解][ 4 ]
-5. [docker volume 删除孤儿数据卷][ 7 ]
+4. [docker镜像理解][4]
+5. [docker volume 删除孤儿数据卷][7]
 
 [1]: https://www.gitbook.com/book/yeasy/docker_practice/details
 [2]: https://github.com/veggiemonk/awesome-docker/
