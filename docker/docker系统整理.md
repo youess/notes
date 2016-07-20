@@ -15,7 +15,7 @@
 
 > ### 背景
 
-  docker于2013年开始创建的一个业余项目，自从开源以来，不断的发展。它是一种轻量，快速的虚拟化技术。基于LXC容器进一步封装，省去了对容器的管理。与传统虚拟机不同的是，docker创建的容器是在操作系统层面实现的虚拟化，如![下图示意](./virtualization.png)
+  docker于2013年开始创建的一个业余项目，自从开源以来，不断的发展。它是一种轻量，快速的虚拟化技术。基于LXC容器进一步封装，省去了对容器的管理。与传统虚拟机不同的是，docker创建的容器是在操作系统层面实现的虚拟化，如![下图示意](./virtualization.png)  ![](./docker.png)
 
   从图中可以看出docker是让容器共用了引擎，共用了内核，同时保证了各个项目之间的空间独立。但我自己还不清楚和传统虚拟机保证在同一个虚拟主机里面运行不同的项目的根本区别在哪里？仅仅是启动速度快和项目之间的隔离么？在比较docker和传统虚拟机时，单个比较一个容器就是一个传统虚拟机是不太公平的吧，为什么一个项目就非得用一个虚拟机，而不是一个虚拟机承载多个项目呢？（考虑到单个项目的故障，会影响所在虚拟机其他项目么）
 
@@ -98,9 +98,32 @@
 
 > ### Volume使用
 
+启用数据卷
 
+`docker run -d -P --name web -v /src/webapp:/opt/webapp linuxImg python app.py`
+
+删除数据卷，要么`docker rm -v`, 要么启动的时候加上`docker run --rm`
+
+创建一个数据卷容器, `docker run -d -v /dbdata --name db0 postgres echo 'empty data volume db0 created'`
+
+在其他容器(不止一个)中引用，`docker run -d --volume-from db0 --name db1 postgres`,
+同时也可以继承引用 `docker run -d --volume-from db1 --name db2 postgres`
+
+**如果不显示删除数据卷，数据卷会持久存在的**
+
+自docker 1.9版本以上添加了`docker volume`功能可以查看已有的数据卷。可以很好的控制孤儿数据卷
+
+查看所有孤儿数据卷
+
+`docker volume ls -qf dangling=true`
+
+删除所有孤儿数据卷
+
+`docker volume rm $(docker volume ls -qf dangling=true)`
 
 > ### 安全
+
+
 
 ## 2. 案例
 
@@ -108,8 +131,9 @@
 
 1. [ docker 技术入门与实践 ][1]
 2. [ awesome Docker ][2]
-3. [ docker Cheat Sheet ][3]几乎全部的命令解释
+3. [ docker Cheat Sheet ][3]有很全的命令解释
 4. [docker镜像理解][ 4 ]
+5. [docker volume 删除孤儿数据卷][ 7 ]
 
 [1]: https://www.gitbook.com/book/yeasy/docker_practice/details
 [2]: https://github.com/veggiemonk/awesome-docker/
@@ -117,3 +141,4 @@
 [4]: http://www.infoq.com/cn/articles/docker-source-code-analysis-part9
 [5]: https://hub.docker.com/
 [6]: https://c.163.com/hub#/m/home/
+[7]: http://stackoverflow.com/questions/27812807/orphaned-docker-mounted-host-volumes
