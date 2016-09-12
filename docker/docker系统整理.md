@@ -78,6 +78,10 @@
 
   - `docker network`
 
+- 进入容器
+
+  - `docker exec -it <container_id> /bin/bash`
+
 > ### Dockerfile创建
 
 以`#`作为注释，其他用`INSTRUCTION arguments`，进行指令的说明

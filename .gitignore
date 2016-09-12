@@ -7,3 +7,4 @@ npm-debug.log
 .Rproj.user
 *.RData
 .Rhistory
+*.out
